@@ -59,6 +59,6 @@ public class VeterinariaDuoc {
 
         //  Mostrar resultados
         vet.listarAtenciones();
-        System.out.println("\n💰 Total general: $" + vet.calcularTotal());
+        System.out.println("\n Total general: $" + vet.calcularTotal());
     }
 }
