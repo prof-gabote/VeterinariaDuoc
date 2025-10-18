@@ -6,24 +6,14 @@ package veterinariaduoc;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author Gabote
- */
-public class Consulta extends Atencion {
+//Se debe establecer la herencia
+public class Consulta {
 
     private boolean incluyeVacunas;
     private boolean requiereSedacion;
 
+    //Se debe generar el cosntructor en herencia
     public Consulta() {
-    }
-
-    public Consulta(String codigo, LocalDate fecha, Mascota mascota, String veterinario,
-            double costoBase, String observaciones,
-            boolean incluyeVacunas, boolean requiereSedacion) {
-        super(codigo, fecha, mascota, veterinario, costoBase, observaciones);
-        this.incluyeVacunas = incluyeVacunas;
-        this.requiereSedacion = requiereSedacion;
     }
 
     public boolean isIncluyeVacunas() {
@@ -41,21 +31,9 @@ public class Consulta extends Atencion {
     public void setRequiereSedacion(boolean requiereSedacion) {
         this.requiereSedacion = requiereSedacion;
     }
-
-    @Override
-    public double calcularCostoFinal() {
-        double total = getCostoBase();
-        if (incluyeVacunas) {
-            total += 7000;
-        }
-        if (requiereSedacion) {
-            total += 5000;
-        }
-        return total;
-    }
-
-    @Override
-    public String resumen() {
-        return "[" + super.getCodigo() + "] " + super.getFecha() + " - Consulta (Base: $" + super.getCostoBase() + ") - Total: $" + calcularCostoFinal();
-    }
+    
+    //Se debe sobreescribir calcularCostoFinal()
+    
+    //Se debe sobreescribir resumen()
+    //"[" + super.getCodigo() + "] " + super.getFecha() + " - Consulta (Base: $" + super.getCostoBase() + ") - Total: $" + calcularCostoFinal();
 }

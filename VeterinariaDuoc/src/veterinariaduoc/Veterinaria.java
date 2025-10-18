@@ -13,39 +13,18 @@ import java.util.List;
  */
 public class Veterinaria {
 
-    private List<Atencion> atenciones = new ArrayList<>();
+    //Se debe implementar la lista
 
     public Veterinaria() {
     }
 
-    public void registrarAtencion(Atencion a) {
-        if (a.validar()) {
-            atenciones.add(a);
-            System.out.println("Atención registrada correctamente: " + a.getCodigo());
-            return;
-        }
-        System.out.println("No fue posible registrar la atención: " + a.getCodigo());
-    }
+    //Se debe implementar método de registrarAtención
+    
+    //Se debe implementar listarAtenciones()
 
-    public void listarAtenciones() {
-        if (atenciones.isEmpty()) {
-            System.out.println(" No hay atenciones registradas.");
-            return;
-        }
-        
-        System.out.println("\n LISTADO DE ATENCIONES");
-        for (Atencion a : atenciones) {
-            
-            System.out.println(a.resumen() + " - Mascota: " + a.getMascota().obtenerDetalle());
-        }
-        System.out.println("Total de atenciones: " + atenciones.size());
-    }
-
+    //Se debe implementar calcularTotal()
     public double calcularTotal() {
         double total = 0;
-        for (Atencion a : atenciones) {
-            total += a.calcularCostoFinal();
-        }
         return total;
     }
 }

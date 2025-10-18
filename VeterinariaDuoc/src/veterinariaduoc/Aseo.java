@@ -6,25 +6,15 @@ package veterinariaduoc;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author Gabote
- */
-public class Aseo extends Atencion {
+
+//Se debe establecer la herencia
+public class Aseo {
 
     private boolean incluyeCorte;
     private boolean incluyeDesparasitado;
 
+    //Se debe generar el cosntructor en herencia
     public Aseo() {
-        super(null, null, null, null, 0, null);
-    }
-
-    public Aseo(String codigo, LocalDate fecha, Mascota mascota, String veterinario,
-            double costoBase, String observaciones,
-            boolean incluyeCorte, boolean incluyeDesparasitado) {
-        super(codigo, fecha, mascota, veterinario, costoBase, observaciones);
-        this.incluyeCorte = incluyeCorte;
-        this.incluyeDesparasitado = incluyeDesparasitado;
     }
 
     public boolean isIncluyeCorte() {
@@ -42,37 +32,14 @@ public class Aseo extends Atencion {
     public void setIncluyeDesparasitado(boolean incluyeDesparasitado) {
         this.incluyeDesparasitado = incluyeDesparasitado;
     }
-    
-    @Override
-    public double calcularCostoFinal() {
-        double total = getCostoBase() + (getMascota().getPeso() * 1000);
-        if (incluyeCorte) {
-            total += 3000;
-        }
-        if (incluyeDesparasitado) {
-            total += 5000;
-        }
-        return total;
-    }
 
-    @Override
-    public String resumen() {
-        return "[" + super.getCodigo() + "] " + super.getFecha() + " - Aseo (Base: $" + super.getCostoBase() + ") - Total: $" + calcularCostoFinal();
-    }
+    //Se debe sobreescribir calcularCostoFinal()
     
-    @Override
-    public boolean validar (){
-        if(!super.validar())
-            return false;
-        if (getCostoBase() < 10000) {
-            System.out.println("Advertencia - La atención " + getCodigo() + " tiene un precio menor a $10000");
-            return false;
-        }
-        if (getMascota().getPeso() > 50) {
-            System.out.println("Advertencia- La mascota de la atención " + getCodigo() + " tiene un peso mayor a 50kg");
-            return false;
-        }
-        return true;
-    }
-
+    //Se debe sobreescribir resumen() "[" + super.getCodigo() + "] " + super.getFecha() + " - Aseo (Base: $" + super.getCostoBase() + ") - Total: $" + calcularCostoFinal();
+    
+    //Se debe sobreescribir validar ()
+    
+        //El costo no debe ser menor a 10000
+    
+        //El peso de la mascota no debe ser mayor a 50kg
 }

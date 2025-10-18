@@ -6,11 +6,8 @@ package veterinariaduoc;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author Gabote
- */
-public abstract class Atencion implements Facturable {
+//Implementar interfaces y abstracción
+public class Atencion {
 
     private String codigo;
     private LocalDate fecha;
@@ -80,27 +77,21 @@ public abstract class Atencion implements Facturable {
         this.observaciones = observaciones;
     }
 
-    public abstract double calcularCostoFinal();
+    //Implementar método abstracto calcularCostoFinal()
 
-    public abstract String resumen();
+    //Implementar método abstracto resumen()
 
+    //Implementar método validar
     public boolean validar() {
-        if (fecha == null) {
-            System.out.println("La fecha de la atención " + getCodigo() + " no puede ser nula.");
-            return false;
-        }
-        if (fecha.isAfter(LocalDate.now())) {
-            System.out.println("La fecha de la atención " + getCodigo() + " no puede ser futura.");
-            return false;
-        }
-        if (costoBase <= 0) {
-            System.out.println("El costo base de la atención " + getCodigo() + " debe ser mayor a cero.");
-            return false;
-        }
-        if (mascota == null) {
-            System.out.println("Debe asociarse una mascota válida a la atención " + getCodigo() + ".");
-            return false;
-        }
+        
+        //La fecha de atención no puede ser nula
+
+        //La fecha de atención no puede ser futura
+
+        //El costo debe ser mayor a 0
+
+        //Se debe asociar una mascota válida a atención
+
         return true;
     }
 }

@@ -6,22 +6,15 @@ package veterinariaduoc;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author Gabote
- */
-public class Hospitalizacion extends Atencion {
+//Se debe establecer la herencia
+public class Hospitalizacion {
 
     private int diasEstadia;
 
+    //Se debe generar el cosntructor en herencia
     public Hospitalizacion() {
     }
-    
-    public Hospitalizacion(String codigo, LocalDate fecha, Mascota mascota, String veterinario,
-            double costoBase, String observaciones, int diasEstadia) {
-        super(codigo, fecha, mascota, veterinario, costoBase, observaciones);
-        this.diasEstadia = diasEstadia;
-    }
+   
 
     public int getDiasEstadia() {
         return diasEstadia;
@@ -30,19 +23,9 @@ public class Hospitalizacion extends Atencion {
     public void setDiasEstadia(int diasEstadia) {
         this.diasEstadia = diasEstadia;
     }
-
-    @Override
-    public double calcularCostoFinal() {
-        double total = diasEstadia * getCostoBase();
-        if (diasEstadia > 5) {
-            total *= 0.9; // 10% de descuento
-        }
-        return total;
-    }
-
-    @Override
-    public String resumen() {
-        return "[" + super.getCodigo() + "] " + super.getFecha() + " - Hospitalización (Base: $" + super.getCostoBase() + ") - Total: $" + calcularCostoFinal();
-    }
+    
+    //Se debe sobreescribir calcularCostoFinal()
+    
+    //Se debe sobreescribir resumen() "[" + super.getCodigo() + "] " + super.getFecha() + " - Hospitalización (Base: $" + super.getCostoBase() + ") - Total: $" + calcularCostoFinal();
 
 }
